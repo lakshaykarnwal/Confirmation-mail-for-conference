@@ -10,7 +10,7 @@ scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis
 creds = ServiceAccountCredentials.from_json_keyfile_name("sheetsconnection.json",scope)
 
 client = gspread.authorize(creds)
-sheet = client.open("EXOMUN DELEGATES ").sheet1
+sheet = client.open("Name of the sheet").sheet1
 
 
 
@@ -41,11 +41,11 @@ while counter <= row_count:
     msg.set_content(body)
 
     msg["Subject"] = "Registration confirmation"
-    msg["From"]= "confrimationexomun@gmail.com"
+    msg["From"]= "email_sender"
     msg["To"]= email
 
     server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-    server.login("confrimationexomun@gmail.com", "exomunlak12")
+    server.login("email_sender", "password")
     #server.sendmail("lakshaykarnwal@gmail.com","{}".format(email),"{}".format(body))
     server.send_message(msg)
 
